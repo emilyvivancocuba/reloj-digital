@@ -1,0 +1,48 @@
+body{
+	background-image: url(../images/bg-reloj.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	height: 100vh;
+}
+
+.hora{
+	padding-top: 100px;
+}
+.fecha{
+	padding-top: 50px;
+}
+.hora, .fecha{
+	color: #fff;
+}
+.glyphicon{
+	display: inline-table;
+	vertical-align: middle;
+	color: #832B7D;
+	padding: 20px;
+}
+.boton_reloj{
+	font-size: 18px;
+    border-radius: 50%;
+    padding: 0px;
+    outline: none;
+    color: #fff;
+    background-color: #FFFFFF;
+    border:0px solid #fff;
+    margin: auto;
+    display: table;
+    margin-top: 50px;
+}
+.boton_reloj:hover, .boton_reloj:focus{
+	background-color: #fff;
+	color: inherit;
+	border-color: #fff;
+	outline: none;
+	border: 0px solid #fff;
+}
+#parrafo_hora{
+	font-size: 60px;
+}
+#parrafo_fecha{
+	font-size: 18px;
+}

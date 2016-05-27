@@ -7,10 +7,10 @@ body{
 }
 
 .hora{
-	padding-top: 100px;
+	padding-top: 40px;
 }
 .fecha{
-	padding-top: 50px;
+	padding-top: 30px;
 }
 .hora, .fecha{
 	color: #fff;
@@ -45,4 +45,10 @@ body{
 }
 #parrafo_fecha{
 	font-size: 18px;
+}
+#lista_paises{
+	padding-top: 20px;
+	color: #fff;
+	font-weight: 700;
+	font-size: 16px;
 }

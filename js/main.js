@@ -1,28 +1,30 @@
 /*CARGANDO DOCUMENT*/
 $(document).ready(function(){
 	insertar_ciudades();
-	setInterval(hora_peru, 1000);
+	hora_peru();
 	fecha_peru();
-	$('input[type=checkbox]').click(function(){
-		setTimeout(show_country, 5000);
-	});
-	
+	show_country();
+
 });
+
 function insertar_ciudades(){
 	for (var i = 0; i < ciudades.length; i++) {
 		$('.form').append('<div class="checkbox"><label><input type="checkbox" data="'+i+'">'+ciudades[i].ciudad+'</label></div>');
 	}
 }
-var datos, horas, minutos, segundos;
+
+
 function hora_peru(){
-	datos=new Date();
-   	horas=datos.getHours();
-   	minutos=datos.getMinutes();
-   	segundos=datos.getSeconds();
+	var datos=new Date();
+   	var horas=datos.getHours();
+   	var minutos=datos.getMinutes();
+   	var segundos=datos.getSeconds();
 
    	if (horas<10) {horas='0'+horas;}
    	if (minutos<10) {minutos='0'+minutos;}
    	if (segundos<10) {segundos='0'+segundos;}
+
+   	setTimeout('hora_peru()', 10);
 
    	$("#parrafo_hora").text(horas+':'+minutos+':'+segundos);
 }
@@ -60,12 +62,33 @@ var ciudades=[
 	{ciudad: 'Bogota',
 	dif_horario:0}];
 
+
 function show_country() {
-	var data=$(this).attr('data');
-	if ($(this).is(':checked')) {
-		var hora_ciudad=horas+ciudades[data].dif_horario;
-		$('#lista_paises').append('<div id='+data+'><span class="text-left">'+ciudades[data].ciudad+'</span><span class="pull-right">'+hora_ciudad+':'+minutos+':'+segundos+'</span></div>');
-	}else{
-		$('#'+data).remove();
-	}
+
+	$('input[type=checkbox]').click(function(){
+		var data=$(this).attr('data');
+		
+		if ($(this).is(':checked')) {
+			
+			$('#lista_paises').append('<div id='+data+'></div>');
+			setInterval("hora_ciudad_func("+data+")", 10);
+
+		}else{
+			$('#'+data).remove();
+		}
+	});
 };
+
+function hora_ciudad_func(data){
+	var datos=new Date();
+   	var horas=datos.getHours();
+   	var minutos=datos.getMinutes();
+   	var segundos=datos.getSeconds();
+
+   	if (horas<10) {horas='0'+horas;}
+   	if (minutos<10) {minutos='0'+minutos;}
+   	if (segundos<10) {segundos='0'+segundos;}
+
+   	var hora_ciudad=horas+ciudades[data].dif_horario;
+	$('#'+data).html('<span class="text-left">'+ciudades[data].ciudad+'</span><span class="pull-right">'+hora_ciudad+':'+minutos+':'+segundos+'</span>');
+}

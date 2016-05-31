@@ -1,3 +1,8 @@
+/*TENER EN CUENTA QUE EN VEZ DEL ATRIBUTO DATA, TAMBIÉN SE PUDO HABER DETERMINADO CUALQUIER OTRO ATRIBUTO COMO VALUE, POR EJEMPLO*/
+
+
+
+
 /*CARGANDO DOCUMENT*/
 $(document).ready(function(){
 	insertar_ciudades();
@@ -6,14 +11,14 @@ $(document).ready(function(){
 	show_country();
 
 });
-
+/*INSERTANDO LAS CIUDADES EN LOS INPUT CHECKBOX DE LA LISTA DE OPCIONES DEL MODEL*/
 function insertar_ciudades(){
 	for (var i = 0; i < ciudades.length; i++) {
 		$('.form').append('<div class="checkbox"><label><input type="checkbox" data="'+i+'">'+ciudades[i].ciudad+'</label></div>');
 	}
 }
 
-
+/*IMPRIME LA HORA LOCAL, EN ESTE CASO PERÚ LIMA*/
 function hora_peru(){
 	var datos=new Date();
    	var horas=datos.getHours();
@@ -29,6 +34,7 @@ function hora_peru(){
    	$("#parrafo_hora").text(horas+':'+minutos+':'+segundos);
 }
 
+/*IMPRIME LA FECHA LOCAL*/
 function fecha_peru(){
 	var datos=new Date();
 	var array_dias=['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
@@ -63,6 +69,7 @@ var ciudades=[
 	dif_horario:0}];
 
 
+/*MOSTRAR LA CIUDAD SEGÚN LA DATA LEÍDA DEL CHECKBOX SELECCIONADO*/
 function show_country() {
 
 	$('input[type=checkbox]').click(function(){
@@ -79,6 +86,7 @@ function show_country() {
 	});
 };
 
+/*IMPRIME LA HORA ACTUALIZADA DE LA CIUDAD CADA SEGUNDO*/
 function hora_ciudad_func(data){
 	var datos=new Date();
    	var horas=datos.getHours();

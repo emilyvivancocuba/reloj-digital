@@ -89,6 +89,7 @@ function hora_ciudad_func(data){
    	if (minutos<10) {minutos='0'+minutos;}
    	if (segundos<10) {segundos='0'+segundos;}
 
-   	var hora_ciudad=horas+ciudades[data].dif_horario;
+   	var hora_ciudad=parseInt(horas)+ciudades[data].dif_horario;
+   	if (hora_ciudad<9) {hora_ciudad='0'+hora_ciudad;}
 	$('#'+data).html('<span class="text-left">'+ciudades[data].ciudad+'</span><span class="pull-right">'+hora_ciudad+':'+minutos+':'+segundos+'</span>');
 }
